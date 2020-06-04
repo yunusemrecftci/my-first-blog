@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} {{post.title}} 
+  {{ block.super }} {% endblock %}
+{% block body %}
+<div class="container   " style="margin-top:80px;">
+  <div class="row">
+    <div>
+      <img src="{{ post.image.url}}" class="col-12" style="margin-left:0px;margin-right:0px;" alt="">
+      <h2 style="text-align:center; margin-top:40px ; margin-bottom:40px ; ">{{post.title}}</h2>
+      
+        <p>{{ post.text|safe|linebreaks }}</p>
+      
+      <div class="rounded-circle">{{ post.date|timesince}} önce yayınlandı</div><div> Yazar:{{ post.user.get_full_name}} </div>
+    
+    {% if request.user.is_authenticated %}
+                                    <a href="{{ post.get_update_url }}" class="btn btn-warning" role="button">Güncelle</a>
+                                    <a href="{{ post.get_detele_url }}" class="btn btn-danger" role="button">Sil</a>
+    {% endif %}</div></div>
+
+  </div>
+
+</div>
+
+
+    
+
+
+{% endblock %}

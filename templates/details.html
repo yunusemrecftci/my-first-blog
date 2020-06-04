@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} {{post.title}} 
+  {{ block.super }} {% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8 col-lg-8 ">
+            <img src="{{ post.image.url }}" alt="">
+        </div>
+        <div class="col-12 col-md-8 col-lg-8 ">
+            {{ post.title }}
+        </div>
+        <div class="col-12 col-md-8 col-lg-8 ">
+            <p>{{ post.text|safe|linebreaks }}</p>
+        </div>
+        <div class="col-12 col-md-8 col-lg-8 ">
+            {% if request.user.is_authenticated %}
+                <a href="{{ post.get_update_url }}" class="btn btn-warning" role="button">Güncelle</a>
+                <a href="{{ post.get_detele_url }}" class="btn btn-danger" role="button">Sil</a>
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

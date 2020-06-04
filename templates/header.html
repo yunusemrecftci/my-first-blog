@@ -1,0 +1,43 @@
+
+<nav class="navbar navbar-expand-md fixed-top" style="background-color:#fcca03;color:black; margin-bottom:20px;">
+	<a href="http://127.0.0.1:8000/" class=" navbar-brand "><img src="../media/anasayfa/yun.svg" alt=""> Arimektebi.com</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon" style="background-color: aliceblue;"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav ml-auto  ">
+						
+						
+			{% if request.user.is_authenticated %}
+			<li class="nav-item px-3">
+				<a href="{% url 'post:create' %}" class="nav-link">Yazı Ekle</a>
+			</li>{% endif %}
+			<li class="nav-item px-3" >
+				<a href="http://127.0.0.1:8000/index" size="5" class="nav-link">Tüm yazılar</a>
+			</li>
+			<li class="nav-item px-3" >
+				<a href="http://127.0.0.1:8000/hakkimda" size="5" class="nav-link">Hakkımda</a>
+			</li>
+			<li class="nav-item px-3" >
+				<a href="http://127.0.0.1:8000/hakkimda" size="5" class="nav-link">İletişim</a>
+			</li>
+			<div class="dropdown">
+				<button class="btn dropdown-toggle" style=" margin-right:5px; background-color:#fcca03;"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  POPÜLER
+				</button>
+				<div class="dropdown-menu" style=" background-color:#fcca03;" aria-labelledby="dropdownMenuButton">
+				  <a class="dropdown-item" href="http://127.0.0.1:8000/index/?q=ar%C4%B1+destekleri">Arıcılık Destekleri</a>
+				  <a class="dropdown-item" href="http://127.0.0.1:8000/index/?q=ar%C4%B1c%C4%B1l%C4%B1k">Arıcılık</a>
+				  <a class="dropdown-item" href="http://127.0.0.1:8000/index/?q=ar%C4%B1+hastal%C4%B1klar%C4%B1">Arı hastalıkları</a>
+				</div>
+			  </div>
+		</ul>
+		<form class="form-inline my-2 my-lg-0" method="GET" role="search" action="/index">
+			<input class="form-control mr-sm-2" type="search" placeholder="Yazı Ara" aria-label="Search" name="q" value="{{request.GET.q }}">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Araştır</button>
+		  </form>
+		  
+	</div>
+  </nav>  
+ 
+   

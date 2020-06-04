@@ -1,0 +1,11 @@
+ {% for post in posts %}
+    <div class="col-12  border "  style="border-radius: 30px;border-color: #000000;background-color: #000000; margin-bottom: 10px;">
+      <div class="text-justify" style="color:white;"><h3>{{ post.title}}</h3> </div>
+        <div style="color:white;"><img src="{{post.image.url}}" alt="a" class="col-4 thubnail bg-warning border-warning p-2 float-left m-2 img-thumbnail">
+        <p class="col-8 p-2 " style="color:white;">{{ post.text|safe|truncatechars:200 }}</p></div>
+    </div>
+    {% endfor %}
+
+
+    6LfqLwAVAAAAAMAAzhv1EhskwtaZdSw-rxfrjmVh
+    6LfqLwAVAAAAAPtFFedyjp6iJX-SNzdfmIW4xTc1
